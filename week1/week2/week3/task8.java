@@ -1,28 +1,15 @@
-public class Task_7 {
-    public static int NthPrime(int input1) {
-        int count = 0;  // how many primes found
-   
- int number = 2; // candidate number to test
-
-
-        while (true) {
-            if (isPrime(number)) {
-                count++;
-                if (count == input1) {
-                    return number; // found nth prime
-                }
-            }
-            number++;
+class Task_8
+{
+public int SeriesN(int input1,int input2,int input3,int input4){
+int gap1 = (input2 - input1);
+        int gap2 = (input3 - input2);
+        int output = input1;
+        for (int i = 1; i < input4; i++) {
+            if (i % 2 == 1)
+                output += gap1;
+            else
+                output += gap2;
         }
-    }
-    // helper to check if num is prime
-    public static boolean isPrime(int num) {
-        if (num <= 1) return false;
-        if (num == 2) return true;
-        if (num % 2 == 0) return false;
-        for (int i = 3; i * i <= num; i += 2) {
-            if (num % i == 0) return false;
-        }
-        return true;
-    }
+        return output;
+}
 }
